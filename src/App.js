@@ -13,13 +13,13 @@ function App() {
     if (window.confirm('Are you sure you want to delete this feedback?')) {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
-    console.log(typeof id, id);
+    // console.log(typeof id, id);
   };
 
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     setFeedback([newFeedback, ...feedback]);
-    console.log(newFeedback);
+    // console.log(newFeedback);
   };
   return (
     <>
