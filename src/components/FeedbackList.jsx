@@ -1,8 +1,11 @@
+import { useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import FeedbackItem from './FeedbackItems';
-import PropTypes from 'prop-types';
 
-function FeedbackList({ feedback, handleDelete }) {
+function FeedbackList({ handleDelete }) {
+  const { feedback } = useContext(FeedbackContext);
+
   if (!feedback || feedback.length === 0) {
     return <p>No Feedback Yet</p>;
   }
@@ -35,14 +38,14 @@ function FeedbackList({ feedback, handleDelete }) {
   // );
 }
 
-FeedbackList.propTypes = {
-  feedback: PropTypes.array.isRequired,
-  // feedback: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     id: PropTypes.number.isRequired,
-  //     rating: PropTypes.number.isRequired,
-  //     text: PropTypes.string.isRequired,
-  //   }),
-  // ),
-};
+// FeedbackList.propTypes = {
+//   feedback: PropTypes.array.isRequired,
+// feedback: PropTypes.arrayOf(
+//   PropTypes.shape({
+//     id: PropTypes.number.isRequired,
+//     rating: PropTypes.number.isRequired,
+//     text: PropTypes.string.isRequired,
+//   }),
+// ),
+// };
 export default FeedbackList;
